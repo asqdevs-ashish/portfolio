@@ -1,9 +1,9 @@
 import { Github, Linkedin, Twitter, Heart } from "lucide-react";
 
 const socialLinks = [
-  { icon: Github, href: "#", label: "GitHub" },
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: Twitter, href: "#", label: "Twitter" },
+  { icon: Github, href: "https://github.com/asqdevs-ashish", label: "GitHub" },
+  { icon: Linkedin, href: "https://www.linkedin.com/in/ashish-pathak-968632400?utm_source=share_via&utm_content=profile&utm_medium=member_android", label: "LinkedIn" },
+  { icon: Twitter, href: "https://x.com/ashish_dev404", label: "Twitter" },
 ];
 
 const footerLinks = [
@@ -23,10 +23,10 @@ export const Footer = () => {
           {/* Logo & Copyright */}
           <div className="text-center md:text-left">
             <a href="#" className="text-xl font-bold tracking-tight">
-              PM<span className="text-primary">.</span>
+              AK<span className="text-primary">.</span>
             </a>
             <p className="text-sm text-muted-foreground mt-2">
-              © {currentYear} Pedro Machado. All rights reserved.
+              © {currentYear} Ashish Kumar. All rights reserved.
             </p>
           </div>
 
@@ -49,6 +49,8 @@ export const Footer = () => {
               <a
                 key={social.label}
                 href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label={social.label}
                 className="p-2 rounded-full glass hover:bg-primary/10 hover:text-primary transition-all"
               >

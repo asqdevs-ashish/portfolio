@@ -1,33 +1,27 @@
 import { Button } from "@/components/Button";
-import {
-  ArrowRight,
-  ChevronDown,
-  Github,
-  Linkedin,
-  Twitter,
-  Download,
-} from "lucide-react";
+import { ArrowRight, ChevronDown, Download } from "lucide-react";
 import { AnimatedBorderButton } from "../components/AnimatedBorderButton";
 
 const skills = [
   "React",
+  "React Native",
   "Next.js",
   "TypeScript",
   "Node.js",
-  "GraphQL",
-  "PostgreSQL",
+  "Express.js",
   "MongoDB",
+  "PostgreSQL",
+  "Tailwind CSS",
+  "REST APIs",
+  "GraphQL",
+  "Prisma",
   "Redis",
   "Docker",
   "AWS",
   "Vercel",
-  "Tailwind CSS",
-  "Prisma",
-  "Jest",
-  "Cypress",
-  "Figma",
   "Git",
   "GitHub Actions",
+  "Figma",
 ];
 
 export const Hero = () => {
@@ -37,7 +31,7 @@ export const Hero = () => {
       <div className="absolute inset-0">
         <img
           src="/hero-bg.jpg"
-          alt="Hero image"
+          alt="Hero background"
           className="w-full h-full object-cover opacity-40"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/80 to-background" />
@@ -47,6 +41,7 @@ export const Hero = () => {
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(30)].map((_, i) => (
           <div
+            key={i}
             className="absolute w-1.5 h-1.5 rounded-full opacity-60"
             style={{
               backgroundColor: "#20B2A6",
@@ -85,55 +80,51 @@ export const Hero = () => {
                 </span>
               </h1>
               <p className="text-lg text-muted-foreground max-w-lg animate-fade-in animation-delay-200">
-                Hi, I'm Pedro Machado — a software engineer specializing in
-                React, Next.js, and TypeScript. I build scalable, performant web
-                applications that users love.
+                Hi, I'm Ashish. I'm a Full-Stack & Mobile Developer specializing
+                in Next.js, MERN/PERN stacks, and React Native. I build scalable
+                web platforms and cross-platform mobile apps built for speed and
+                performance.
               </p>
             </div>
 
             {/* CTAs */}
             <div className="flex flex-wrap gap-4 animate-fade-in animation-delay-300">
-              <Button size="lg">
-                Contact Me <ArrowRight className="w-5 h-5" />
-              </Button>
-              <AnimatedBorderButton>
-                <Download className="w-5 h-5" />
-                Download CV
-              </AnimatedBorderButton>
-            </div>
+              {/* WhatsApp Link */}
+              <a
+                href="https://wa.me/917485826309?text=Hi%20Ashish,%20I%20explored%20your%20portfolio%20and%20I'm%20interested%20in%20discussing%20a%20potential%20project%20with%20you."
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button size="lg" className="cursor-pointer">
+                  Contact Me <ArrowRight className="w-5 h-5" />
+                </Button>
+              </a>
 
-            {/* Social Links */}
-            <div className="flex items-center gap-4 animate-fade-in animation-delay-400">
-              <span className="text-sm text-muted-foreground">Follow me: </span>
-              {[
-                { icon: Github, href: "#" },
-                { icon: Linkedin, href: "#" },
-                { icon: Twitter, href: "#" },
-              ].map((social, idx) => (
-                <a
-                  key={idx}
-                  href={social.href}
-                  className="p-2 rounded-full glass hover:bg-primary/10 hover:text-primary transition-all duration-300"
-                >
-                  {<social.icon className="w-5 h-5" />}
-                </a>
-              ))}
+              {/* CV Download Link */}
+              <a href="/resume.pdf" download="Ashish_Kumar_Resume.pdf">
+                <AnimatedBorderButton>
+                  <Download className="w-5 h-5" />
+                  Download CV
+                </AnimatedBorderButton>
+              </a>
             </div>
-          </div>
+          </div>{" "}
+          {/* <-- Left Column ka missing </div> yahan add kar diya hai */}
           {/* Right Column - Profile Image */}
-          <div className="relatice animate-fade-in animation-delay-300">
-            {/* Profile Image */}
+          <div className="relative animate-fade-in animation-delay-300">
+            {" "}
+            {/* Fixed typo: relatice -> relative */}
             <div className="relative max-w-md mx-auto">
               <div
                 className="absolute inset-0 
-              rounded-3xl bg-gradient-to-br 
-              from-primary/30 via-transparent 
-              to-primary/10 blur-2xl animate-pulse"
+                rounded-3xl bg-gradient-to-br 
+                from-primary/30 via-transparent 
+                to-primary/10 blur-2xl animate-pulse"
               />
               <div className="relative glass rounded-3xl p-2 glow-border">
                 <img
-                  src="/profile-photo.jpg"
-                  alt="Pedro Machado"
+                  src="/profile-photo.jpeg"
+                  alt="Ashish Kumar"
                   className="w-full aspect-[4/5] object-cover rounded-2xl"
                 />
 
@@ -146,9 +137,10 @@ export const Hero = () => {
                     </span>
                   </div>
                 </div>
+
                 {/* Stats Badge */}
                 <div className="absolute -top-4 -left-4 glass rounded-xl px-4 py-3 animate-float animation-delay-500">
-                  <div className="text-2xl font-bold text-primary">5+</div>
+                  <div className="text-2xl font-bold text-primary">4+</div>
                   <div className="text-xs text-muted-foreground">
                     Years Exp.
                   </div>
@@ -187,7 +179,7 @@ export const Hero = () => {
 
       <div
         className="absolute bottom-8 left-1/2 -translate-x-1/2 
-      animate-fade-in animation-delay-800"
+        animate-fade-in animation-delay-800"
       >
         <a
           href="#about"

@@ -2,31 +2,29 @@ import {
   Mail,
   Phone,
   MapPin,
-  Send,
   CheckCircle,
-  AlertCircle,
+  MessageSquare,
 } from "lucide-react";
 import { Button } from "@/components/Button";
 import { useState } from "react";
-import emailjs from "@emailjs/browser";
 
 const contactInfo = [
   {
-    icon: Mail,
-    label: "Email",
-    value: "pedro@example.com",
-    href: "mailto:pedro@example.com",
+    icon: Phone,
+    label: "WhatsApp / Phone",
+    value: "+91 74858 26309",
+    href: "https://wa.me/917485826309",
   },
   {
-    icon: Phone,
-    label: "Phone",
-    value: "+1 (555) 123-4567",
-    href: "tel:+15551234567",
+    icon: Mail,
+    label: "Email",
+    value: "contact@Ashish.com",
+    href: "mailto:asqdevs.ashish@gmail.com",
   },
   {
     icon: MapPin,
     label: "Location",
-    value: "San Francisco, CA",
+    value: "Gurugram / Sohna, India",
     href: "#",
   },
 ];
@@ -37,55 +35,27 @@ export const Contact = () => {
     email: "",
     message: "",
   });
-  const [isLoading, setIsLoading] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState({
-    type: null, // 'success' or 'error'
-    message: "",
-  });
+  const [submitStatus, setSubmitStatus] = useState(false);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    setIsLoading(true);
-    setSubmitStatus({ type: null, message: "" });
-    try {
-      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+    const phoneNumber = "917485826309";
 
-      if (!serviceId || !templateId || !publicKey) {
-        throw new Error(
-          "EmailJS configuration is missing. Please check your environment variables."
-        );
-      }
+    // Formatted text structure for WhatsApp
+    const formattedText = `Hi Ashish,\n\n*Name:* ${formData.name}\n*Email:* ${formData.email}\n*Message:* ${formData.message}`;
 
-      await emailjs.send(
-        serviceId,
-        templateId,
-        {
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-        },
-        publicKey
-      );
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+      formattedText
+    )}`;
 
-      setSubmitStatus({
-        type: "success",
-        message: "Message sent successfully! I'll get back to you soon.",
-      });
-      setFormData({ name: "", email: "", message: "" });
-    } catch (err) {
-      console.error("EmailJS error:", error);
-      setSubmitStatus({
-        type: "error",
-        message:
-          error.text || "Failed to send message. Please try again later.",
-      });
-    } finally {
-      setIsLoading(false);
-    }
+    // Redirect to WhatsApp
+    window.open(whatsappUrl, "_blank");
+
+    setSubmitStatus(true);
+    setFormData({ name: "", email: "", message: "" });
   };
+
   return (
     <section id="contact" className="py-32 relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full">
@@ -106,12 +76,12 @@ export const Contact = () => {
             </span>
           </h2>
           <p className="text-muted-foreground animate-fade-in animation-delay-200">
-            Have a project in mind? I'd love to hear about it. Send me a message
-            and let's discuss how we can work together.
+            Have a project in mind? Fill out the details below to start a direct WhatsApp conversation.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+          {/* Form Card */}
           <div className="glass p-8 rounded-3xl border border-primary/30 animate-fade-in animation-delay-300">
             <form className="space-y-6" onSubmit={handleSubmit}>
               <div>
@@ -137,12 +107,13 @@ export const Contact = () => {
               <div>
                 <label
                   htmlFor="email"
-                  type="email"
                   className="block text-sm font-medium mb-2"
                 >
                   Email
                 </label>
                 <input
+                  id="email"
+                  type="email"
                   required
                   placeholder="your@email.com"
                   value={formData.email}
@@ -161,48 +132,33 @@ export const Contact = () => {
                   Message
                 </label>
                 <textarea
+                  id="message"
                   rows={5}
                   required
                   value={formData.message}
                   onChange={(e) =>
                     setFormData({ ...formData, message: e.target.value })
                   }
-                  placeholder="Your message..."
+                  placeholder="Your message or project requirements..."
                   className="w-full px-4 py-3 bg-surface rounded-xl border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all resize-none"
                 />
               </div>
 
               <Button
-                className="w-full"
+                className="w-full cursor-pointer flex items-center justify-center gap-2"
                 type="submit"
                 size="lg"
-                disabled={isLoading}
               >
-                {isLoading ? (
-                  <>Sending...</>
-                ) : (
-                  <>
-                    Send Message
-                    <Send className="w-5 h-5" />
-                  </>
-                )}
+                Send via WhatsApp
+                <MessageSquare className="w-5 h-5" />
               </Button>
 
-              {submitStatus.type && (
-                <div
-                  className={`flex items-center gap-3
-                     p-4 rounded-xl ${
-                       submitStatus.type === "success"
-                         ? "bg-green-500/10 border border-green-500/20 text-green-400"
-                         : "bg-red-500/10 border border-red-500/20 text-red-400"
-                     }`}
-                >
-                  {submitStatus.type === "success" ? (
-                    <CheckCircle className="w-5 h-5 flex-shrink-0" />
-                  ) : (
-                    <AlertCircle className="w-5 h-5 flex-shrink-0" />
-                  )}
-                  <p className="text-sm">{submitStatus.message}</p>
+              {submitStatus && (
+                <div className="flex items-center gap-3 p-4 rounded-xl bg-green-500/10 border border-green-500/20 text-green-400">
+                  <CheckCircle className="w-5 h-5 flex-shrink-0" />
+                  <p className="text-sm">
+                    Opening WhatsApp with your details...
+                  </p>
                 </div>
               )}
             </form>
@@ -219,6 +175,8 @@ export const Contact = () => {
                   <a
                     key={i}
                     href={item.href}
+                    target={item.href.startsWith("http") ? "_blank" : "_self"}
+                    rel="noopener noreferrer"
                     className="flex items-center gap-4 p-4 rounded-xl hover:bg-surface transition-colors group"
                   >
                     <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
@@ -242,9 +200,7 @@ export const Contact = () => {
                 <span className="font-medium">Currently Available</span>
               </div>
               <p className="text-muted-foreground text-sm">
-                I'm currently open to new opportunities and exciting projects.
-                Whether you need a full-time engineer or a freelance consultant,
-                let's talk!
+                Open to new web/mobile app projects, custom SaaS solutions, and technical consulting.
               </p>
             </div>
           </div>

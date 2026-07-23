@@ -5,24 +5,24 @@ const highlights = [
     icon: Code2,
     title: "Clean Code",
     description:
-      "Writing maintainable, scalable code that stands the test of time.",
+      "Writing maintainable, modular, and scalable code built to stand the test of time.",
   },
   {
     icon: Rocket,
     title: "Performance",
     description:
-      "Optimizing for speed and delivering lightning-fast user experiences.",
+      "Optimizing web and mobile apps for lightning-fast load times and seamless UX.",
   },
   {
     icon: Users,
-    title: "Collaboration",
-    description: "Working closely with teams to bring ideas to life.",
+    title: "Leadership",
+    description: "Leading technical teams and collaborating closely to turn ideas into reality.",
   },
   {
     icon: Lightbulb,
     title: "Innovation",
     description:
-      "Staying ahead with the latest technologies and best practices.",
+      "Leveraging cutting-edge tech stacks like Next.js & React Native to stay ahead.",
   },
 ];
 
@@ -40,44 +40,42 @@ export const About = () => {
             </div>
 
             <h2 className="text-4xl md:text-5xl font-bold leading-tight animate-fade-in animation-delay-100 text-secondary-foreground">
-              Building the future,
+              Architecting scalable web & mobile systems,
               <span className="font-serif italic font-normal text-white">
                 {" "}
-                one component at a time.
+                one stack at a time.
               </span>
             </h2>
 
             <div className="space-y-4 text-muted-foreground animate-fade-in animation-delay-200">
               <p>
-                I'm a passionate software engineer with over 5 years of
-                experience crafting digital products that make a difference. My
-                journey started with a curiosity for how things work on the web,
-                and it has evolved into a deep expertise in modern frontend
-                technologies.
+                I'm a Full-Stack Engineer and Tech Lead passionate about 
+                building end-to-end digital products. My journey began with a curiosity 
+                for how complex systems work under the hood, which quickly grew into 
+                deep expertise across web and mobile ecosystems.
               </p>
               <p>
-                I specialize in React, Next.js, and TypeScript, building
-                everything from sleek landing pages to complex enterprise
-                applications. My approach combines technical excellence with a
-                keen eye for design and user experience.
+                I specialize in <strong>Next.js, MERN, PERN stacks, and React Native</strong>. 
+                Whether it's designing cloud-ready REST/GraphQL APIs with Node.js and PostgreSQL/MongoDB, 
+                or crafting butter-smooth interfaces for mobile and web, I focus on code quality, 
+                security, and high performance.
               </p>
               <p>
-                When I'm not coding, you'll find me exploring new technologies,
-                contributing to open-source projects, or sharing knowledge with
-                the developer community.
+                Beyond coding, I lead tech initiatives, build products in public, and stay at the 
+                forefront of tech trends to deliver modern, business-driving digital solutions.
               </p>
             </div>
 
             <div className="glass rounded-2xl p-6 glow-border animate-fade-in animation-delay-300">
               <p className="text-lg font-medium italic text-foreground">
-                "My mission is to create digital experiences that are not just
-                functional, but truly delightful — products that users love to
-                use and developers love to maintain."
+                My goal is to bridge the gap between complex engineering and 
+                delightful user experience — shipping products that scale effortlessly 
+                and drive real value.
               </p>
             </div>
           </div>
 
-          {/* Right Column - Hilights */}
+          {/* Right Column - Highlights */}
           <div className="grid sm:grid-cols-2 gap-6">
             {highlights.map((item, idx) => (
               <div

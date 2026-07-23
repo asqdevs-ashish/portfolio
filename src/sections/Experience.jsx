@@ -1,38 +1,31 @@
+import React from "react";
+
 const experiences = [
   {
-    period: "2022 — Present",
-    role: "Senior Frontend Engineer",
-    company: "Tech Innovators Inc.",
+    period: "2025 — Present",
+    role: "Founder & Tech Lead",
+    company: "A Square Devs",
     description:
-      "Leading frontend architecture for a suite of fintech products. Implemented micro-frontend architecture, reduced bundle size by 40%, and mentored a team of 5 developers.",
-    technologies: ["React", "TypeScript", "Next.js", "GraphQL"],
+      "Leading end-to-end web and mobile product development. Architecting high-performance MERN/PERN & Next.js applications, managing dev workflows, and shipping client solutions globally.",
+    technologies: ["Next.js", "React Native", "Node.js", "PostgreSQL", "MongoDB", "Tailwind CSS"],
     current: true,
   },
   {
-    period: "2020 — 2022",
-    role: "Frontend Engineer",
-    company: "Digital Solutions Co.",
+    period: "2023 — Present",
+    role: "Senior Full Stack Engineer",
+    company: "Client & Enterprise Contracts",
     description:
-      "Built and maintained multiple React applications for enterprise clients. Introduced automated testing practices that improved code coverage to 85%.",
-    technologies: ["React", "Redux", "Jest", "Cypress"],
+      "Architected and delivered complex full-stack web apps and cross-platform mobile products. Optimized backend API latencies and implemented modern, responsive design systems.",
+    technologies: ["React", "TypeScript", "Express.js", "REST APIs", "Prisma", "Docker"],
     current: false,
   },
   {
-    period: "2019 — 2020",
-    role: "Junior Developer",
-    company: "StartUp Labs",
+    period: "2022 — Present",
+    role: "Frontend & Mobile Developer",
+    company: "Freelance & Consulting",
     description:
-      "Contributed to the development of a SaaS platform from MVP to production. Collaborated with designers to implement pixel-perfect UI components.",
-    technologies: ["React", "Node.js", "MongoDB", "AWS"],
-    current: false,
-  },
-  {
-    period: "2018 — 2019",
-    role: "Freelance Developer",
-    company: "Self-Employed",
-    description:
-      "Delivered custom web solutions for small businesses and startups. Built 15+ websites and applications, handling everything from design to deployment.",
-    technologies: ["JavaScript", "PHP", "WordPress", "MySQL"],
+      "Built cross-platform iOS/Android mobile apps with React Native and interactive frontends with React. Worked closely with design teams to translate wireframes into pixel-perfect code.",
+    technologies: ["React Native", "React", "Redux", "Tailwind CSS", "Figma"],
     current: false,
   },
 ];
@@ -70,8 +63,7 @@ export const Experience = () => {
             className="text-muted-foreground
            animate-fade-in animation-delay-200"
           >
-            A timeline of my professional growth, from curious beginner to
-            senior engineer leading teams and building products at scale.
+            A timeline of my professional growth — building high-impact products, leading development teams, and shipping scalable web & mobile architectures.
           </p>
         </div>
 

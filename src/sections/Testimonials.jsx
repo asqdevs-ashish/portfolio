@@ -1,43 +1,44 @@
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const testimonials = [
   {
     quote:
-      "Pedro is one of the most talented engineers I've worked with. His attention to detail and ability to translate complex requirements into elegant solutions is remarkable.",
-    author: "Sarah Chen",
-    role: "CTO, Tech Innovators Inc.",
+      "Ashish and his team delivered our web platform way ahead of schedule. Their focus on clean architecture, lightning-fast UI performance, and communication was exceptional.",
+    author: "Rohan Mehta",
+    role: "Founder & CEO, EdTech Platform",
+    avatar:
+      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop",
+  },
+  {
+    quote:
+      "Working with A Square Devs was a smooth experience. The mobile app UX and Next.js backend integration exceeded our expectations. Truly a top-tier tech partner.",
+    author: "Ananya Sharma",
+    role: "Product Lead, FinTech Startup",
     avatar:
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop",
   },
   {
     quote:
-      "Working with Pedro was a game-changer for our project. He delivered ahead of schedule with code quality that set a new standard for our team.",
-    author: "Michael Rodriguez",
-    role: "Product Manager, Digital Solutions",
-    avatar:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop",
-  },
-  {
-    quote:
-      "Pedro's expertise in React and TypeScript helped us rebuild our entire frontend in record time. His architectural decisions continue to pay dividends.",
-    author: "Emily Watson",
-    role: "Engineering Lead, StartUp Labs",
-    avatar:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop",
-  },
-  {
-    quote:
-      "Not only is Pedro technically brilliant, but he's also a fantastic communicator and team player. He elevated everyone around him.",
-    author: "David Kim",
-    role: "CEO, Innovation Hub",
+      "Ashish brings both strategic tech thinking and deep engineering expertise to the table. From database design to deployment, everything was handled seamlessly.",
+    author: "Vikram Verma",
+    role: "Co-Founder, Travel SaaS",
     avatar:
       "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop",
+  },
+  {
+    quote:
+      "His technical leadership and mastery of the React Native & Node.js ecosystem helped us scale our platform without friction. Highly recommended!",
+    author: "Priya Patel",
+    role: "Head of Product, Healthcare Solutions",
+    avatar:
+      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop",
   },
 ];
 
 export const Testimonials = () => {
   const [activeIdx, setActiveIdx] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   const next = () => {
     setActiveIdx((prev) => (prev + 1) % testimonials.length);
@@ -48,6 +49,18 @@ export const Testimonials = () => {
       (prev) => (prev - 1 + testimonials.length) % testimonials.length
     );
   };
+
+  // Auto-slide every 7 seconds (pauses on hover/touch)
+  useEffect(() => {
+    if (isPaused) return;
+
+    const interval = setInterval(() => {
+      next();
+    }, 7000);
+
+    return () => clearInterval(interval);
+  }, [isPaused]);
+
   return (
     <section id="testimonials" className="py-32 relative overflow-hidden">
       <div
@@ -55,15 +68,9 @@ export const Testimonials = () => {
        w-[800px] h-[800px] bg-primary/5
         rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"
       />
-      <div
-        className="container mx-auto 
-      px-6 relative z-10"
-      >
+      <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
-        <div
-          className="text-center max-w-3xl 
-        mx-auto mb-16"
-        >
+        <div className="text-center max-w-3xl mx-auto mb-16">
           <span
             className="text-secondary-foreground 
           text-sm font-medium tracking-wider 
@@ -81,21 +88,27 @@ export const Testimonials = () => {
               className="font-serif italic 
             font-normal text-white"
             >
-              amazing people.
+              amazing clients.
             </span>
           </h2>
         </div>
 
-        {/* Testimonial Carousel */}
+        {/* Testimonial Carousel Container */}
         <div className="max-w-4xl mx-auto">
-          <div className="relative">
-            {/* Main Testimonial */}
-            <div className="glass p-8 rounded-3xl md:p-12 glow-border animate-fade-in animation-delay-200">
-              <div className="absolute -top-4 left-8 w-12 h-12 rounded-full bg-primary flex items-center justify-center">
+          <div
+            className="relative"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+            onTouchStart={() => setIsPaused(true)}
+            onTouchEnd={() => setIsPaused(false)}
+          >
+            {/* Main Testimonial Card */}
+            <div className="glass p-8 rounded-3xl md:p-12 glow-border animate-fade-in animation-delay-200 min-h-[280px] flex flex-col justify-between transition-all duration-500">
+              <div className="absolute -top-4 left-8 w-12 h-12 rounded-full bg-primary flex items-center justify-center shadow-lg">
                 <Quote className="w-6 h-6 text-primary-foreground" />
               </div>
 
-              <blockquote className="text-xl md:text-2xl font-medium leading-relaxed mb-8 pt-4">
+              <blockquote className="text-xl md:text-2xl font-medium leading-relaxed mb-8 pt-4 text-foreground/90">
                 "{testimonials[activeIdx].quote}"
               </blockquote>
 
@@ -103,10 +116,10 @@ export const Testimonials = () => {
                 <img
                   src={testimonials[activeIdx].avatar}
                   alt={testimonials[activeIdx].author}
-                  className="w-14 h-14 rounded-full object-cover ring-2 ring-primary/20"
+                  className="w-14 h-14 rounded-full object-cover ring-2 ring-primary/30"
                 />
                 <div>
-                  <div className="font-semibold">
+                  <div className="font-semibold text-lg">
                     {testimonials[activeIdx].author}
                   </div>
                   <div className="text-sm text-muted-foreground">
@@ -116,23 +129,26 @@ export const Testimonials = () => {
               </div>
             </div>
 
-            {/* Testimonials Navigation */}
+            {/* Navigation & Indicators */}
             <div className="flex items-center justify-center gap-4 mt-8">
               <button
-                className="p-3 rounded-full glass hover:bg-primary/10 hover:text-primary transition-all"
+                className="p-3 rounded-full glass hover:bg-primary/10 hover:text-primary transition-all cursor-pointer"
                 onClick={previous}
+                aria-label="Previous testimonial"
               >
-                <ChevronLeft />
+                <ChevronLeft className="w-5 h-5" />
               </button>
 
-              <div className="flex gap-2">
+              <div className="flex gap-2 items-center">
                 {testimonials.map((_, idx) => (
                   <button
+                    key={idx}
                     onClick={() => setActiveIdx(idx)}
-                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    aria-label={`Go to slide ${idx + 1}`}
+                    className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
                       idx === activeIdx
                         ? "w-8 bg-primary"
-                        : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
+                        : "w-2 bg-muted-foreground/30 hover:bg-muted-foreground/50"
                     }`}
                   />
                 ))}
@@ -140,9 +156,10 @@ export const Testimonials = () => {
 
               <button
                 onClick={next}
-                className="p-3 rounded-full glass hover:bg-primary/10 hover:text-primary transition-all"
+                className="p-3 rounded-full glass hover:bg-primary/10 hover:text-primary transition-all cursor-pointer"
+                aria-label="Next testimonial"
               >
-                <ChevronRight />
+                <ChevronRight className="w-5 h-5" />
               </button>
             </div>
           </div>

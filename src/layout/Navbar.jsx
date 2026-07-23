@@ -23,18 +23,21 @@ export const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const whatsappUrl =
+    "https://wa.me/917485826309?text=Hi%20Ashish,%20I%20explored%20your%20portfolio%20and%20I'm%20interested%20in%20discussing%20a%20potential%20project%20with%20you.";
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 transition-all duration-500 ${
         isScrolled ? "glass-strong py-3" : "bg-transparent py-5"
-      }  z-50`}
+      } z-50`}
     >
       <nav className="container mx-auto px-6 flex items-center justify-between">
         <a
           href="#"
           className="text-xl font-bold tracking-tight hover:text-primary"
         >
-          PM<span className="text-primary">.</span>
+          AK<span className="text-primary">.</span>
         </a>
 
         {/* Desktop Nav */}
@@ -52,9 +55,17 @@ export const Navbar = () => {
           </div>
         </div>
 
-        {/* CTA Button */}
+        {/* Desktop CTA Button */}
         <div className="hidden md:block">
-          <Button size="sm">Contact Me</Button>
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button size="sm" className="cursor-pointer">
+              Contact Me
+            </Button>
+          </a>
         </div>
 
         {/* Mobile Menu Button */}
@@ -81,9 +92,17 @@ export const Navbar = () => {
               </a>
             ))}
 
-            <Button onClick={() => setIsMobileMenuOpen(false)}>
-              Contact Me
-            </Button>
+            {/* Mobile CTA Button */}
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              <Button className="w-full cursor-pointer">
+                Contact Me
+              </Button>
+            </a>
           </div>
         </div>
       )}
