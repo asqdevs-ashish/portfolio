@@ -42,18 +42,19 @@ export const Contact = () => {
 
     const phoneNumber = "917485826309";
 
-    // Formatted text structure for WhatsApp
+    // Clean text structure with encoded line breaks
     const formattedText = `Hi Ashish,\n\n*Name:* ${formData.name}\n*Email:* ${formData.email}\n*Message:* ${formData.message}`;
 
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+    // api.whatsapp.com endpoint works seamlessly on desktop web & mobile apps
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(
       formattedText
     )}`;
 
-    // Redirect to WhatsApp
-    window.open(whatsappUrl, "_blank");
-
     setSubmitStatus(true);
     setFormData({ name: "", email: "", message: "" });
+
+    // window.location.href ensures instant redirect with pre-filled text on mobile/desktop
+    window.location.href = whatsappUrl;
   };
 
   return (
