@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Instrument_Serif } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -109,10 +110,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html
-      lang="en"
-      className={`${inter.variable} ${instrumentSerif.variable}`}
-    >
+    <html lang="en" className={`${inter.variable} ${instrumentSerif.variable}`}>
       <body
         suppressHydrationWarning
         className="flex min-h-dvh flex-col bg-background font-sans text-foreground antialiased"
