@@ -19,7 +19,7 @@ export async function generateMetadata({
   const service = getService(slug);
   if (!service) return {};
 
-  const url = `${site.domain}services/${slug}`;
+  const url = `${site.domain}/services/${slug}`;
   return {
     title: service.metaTitle,
     description: service.metaDescription,
@@ -28,7 +28,7 @@ export async function generateMetadata({
       type: "website",
       url,
       siteName: site.name,
-      title: service.metaTitle,
+      title: `${service.metaTitle} | ${site.name}`,
       description: service.metaDescription,
       images: [
         {

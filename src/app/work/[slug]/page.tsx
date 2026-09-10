@@ -34,16 +34,17 @@ export async function generateMetadata({
   const project = projects.find((p) => projectSlug(p.title) === slug);
   if (!project) return {};
 
-  const url = `${site.domain}work/${slug}`;
+  const url = `${site.domain}/work/${slug}`;
+  const pageTitle = `${project.title} — ${project.subtitle}`;
   return {
-    title: `${project.title} — ${project.subtitle} | Ashish Kumar`,
+    title: pageTitle,
     description: project.description,
     alternates: { canonical: url },
     openGraph: {
       type: "website",
       url,
       siteName: site.name,
-      title: `${project.title} — ${project.subtitle} | Ashish Kumar`,
+      title: `${pageTitle} | ${site.name}`,
       description: project.description,
     },
   };
@@ -64,7 +65,7 @@ export default async function WorkCaseStudyPage({
   const next = projects[(index + 1) % projects.length];
   const serviceSlug = serviceSlugsByCategory[project.category];
   const service = services.find((s) => s.slug === serviceSlug);
-  const url = `${site.domain}work/${slug}`;
+  const url = `${site.domain}/work/${slug}`;
 
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
@@ -75,7 +76,7 @@ export default async function WorkCaseStudyPage({
         "@type": "ListItem",
         position: 2,
         name: "Work",
-        item: `${site.domain}#work`,
+        item: `${site.domain}/work`,
       },
       { "@type": "ListItem", position: 3, name: project.title, item: url },
     ],
@@ -88,8 +89,8 @@ export default async function WorkCaseStudyPage({
     description: project.description,
     url,
     inLanguage: "en",
-    author: { "@type": "Person", name: site.name, url: site.domain },
-    isPartOf: { "@type": "WebSite", name: site.name, url: site.domain },
+    author: { "@id": `${site.domain}/#person` },
+    isPartOf: { "@id": `${site.domain}/#website` },
   };
 
   return (
@@ -111,7 +112,7 @@ export default async function WorkCaseStudyPage({
             </li>
             <li>
               <Link
-                href="/#work"
+                href="/work"
                 className="transition-colors hover:text-primary"
               >
                 Work
@@ -263,7 +264,7 @@ export default async function WorkCaseStudyPage({
             either way you’ll get a reply within 24 hours.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
-            <Link href="/#contact" className="btn btn-primary">
+            <Link href="/contact" className="btn btn-primary">
               Start a Project
               <ArrowRight size={16} aria-hidden />
             </Link>

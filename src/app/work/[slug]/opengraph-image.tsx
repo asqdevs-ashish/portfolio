@@ -3,7 +3,7 @@ import { projects, projectSlug } from "@/lib/projects";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
-export const alt = "Ashish Kumar — project case study";
+export const alt = "Ashish Pathak — project case study";
 
 export const dynamicParams = false;
 
@@ -27,7 +27,7 @@ export default async function Image({
     footerLeft: subtitle,
     children: (
       <>
-        {title} <span style={serifAccent}>— built by Ashish Kumar.</span>
+        {title} <span style={serifAccent}>— built by Ashish Pathak.</span>
       </>
     ),
   });

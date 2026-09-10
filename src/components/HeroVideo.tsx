@@ -476,7 +476,7 @@ export function HeroVideo({
             playsInline
             preload="metadata"
             poster={poster}
-            aria-label="Ashish Kumar introduction video"
+            aria-label="Ashish Pathak introduction video"
             className="absolute inset-0 h-full w-full object-contain"
             onPlay={handlePlay}
             onPause={handlePause}
@@ -662,7 +662,7 @@ export function HeroVideo({
         }
       >
         {caption ??
-          "Ashish Kumar introduces himself — websites, web applications and cross-platform mobile apps."}
+          "Ashish Pathak introduces himself — websites, web applications and cross-platform mobile apps."}
       </figcaption>
     </figure>
   );

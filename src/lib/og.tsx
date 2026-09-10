@@ -35,7 +35,7 @@ async function getFonts() {
 }
 
 type OgProps = {
-  /** Small gold eyebrow line, e.g. "Ashish Kumar". */
+  /** Small gold eyebrow line, e.g. "Ashish Pathak". */
   eyebrow: string;
   /** Big headline. Wrap an accent phrase in <span style={serifAccent}> for the serif italic gold treatment. */
   children: ReactNode;

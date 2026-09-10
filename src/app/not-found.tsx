@@ -20,7 +20,7 @@ export default function NotFound() {
               <ArrowLeft size={15} aria-hidden />
               Back to Home
             </Link>
-            <Link href="/#work" className="btn btn-secondary text-sm">
+            <Link href="/work" className="btn btn-secondary text-sm">
               View My Work
               <ArrowUpRight size={15} aria-hidden />
             </Link>

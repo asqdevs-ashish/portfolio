@@ -1,6 +1,6 @@
-# Ashish Kumar — Personal Portfolio
+# Ashish Pathak — Personal Portfolio
 
-Personal portfolio for **Ashish Kumar, AI & Full-Stack Engineer**.
+Personal portfolio for **Ashish Pathak, AI & Full-Stack Engineer**.
 A single-page, editorial-style site built to feel calm, premium and
 hand-crafted — converting visitors into project enquiries.
 
@@ -36,6 +36,9 @@ src/
     not-found.tsx      # 404
     robots.ts          # /robots.txt
     sitemap.ts         # /sitemap.xml
+    about/             # /about (ProfilePage schema)
+    work/              # /work (selected projects)
+    contact/           # /contact
     manifest.ts        # web app manifest
     opengraph-image.tsx             # homepage OG image (PNG, generated)
     work/[slug]/       # per-project case-study pages + OG images
@@ -58,7 +61,7 @@ src/
     og.tsx             # shared OG image renderer (brand fonts)
 public/
   projects/            # project screenshots (real assets)
-  profile-photo.jpeg   # portrait used in About
+  pfp1.jpeg            # portrait used across the site
   favicon.svg
   resume.pdf
 ```
@@ -120,8 +123,9 @@ Conversion events (`start_project`, `book_call`, `whatsapp`, `contact_form`,
 - Generated files: `/robots.txt`, `/sitemap.xml`, `/manifest.webmanifest`,
   and PNG Open Graph images (homepage + one per project, generated at build
   from `src/lib/og.tsx`).
-- JSON-LD: Person + WebSite on the homepage; BreadcrumbList + WebPage on
-  project and service pages.
+- JSON-LD: Person + WebSite on every page; ProfilePage (pointing at the
+  shared Person entity) on `/about`; BreadcrumbList + WebPage on project and
+  service pages.
 - FAQ answers on the homepage stay in the DOM when collapsed, so all content
   is crawlable.
 

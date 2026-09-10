@@ -49,11 +49,11 @@ export const services: Service[] = [
     name: "Web Development",
     tagline:
       "Modern websites and web applications built around real product and business goals.",
-    metaTitle: "Web Development | Freelance Next.js Web Developer — Ashish Kumar",
+    metaTitle: "Web Development — Freelance Next.js Web Developer",
     metaDescription:
       "Freelance web developer building modern websites and web applications with Next.js, React and Node.js for startups, SaaS companies and growing businesses.",
     intro: [
-      "I’m Ashish, a freelance web developer. I build marketing sites, web applications and SaaS products with Next.js, React and Node.js — working directly with startups, SaaS companies and growing businesses from the first conversation to deployment.",
+      "I’m Ashish Pathak, a freelance web developer. I build marketing sites, web applications and SaaS products with Next.js, React and Node.js — working directly with startups, SaaS companies and growing businesses from the first conversation to deployment.",
       "The goal is a website or application that’s fast, easy to use and built around what your product actually needs — not a template that looks like everything else.",
     ],
     builds: [
@@ -98,7 +98,7 @@ export const services: Service[] = [
     name: "Mobile App Development",
     tagline:
       "iOS and Android apps built with React Native from a single shared codebase.",
-    metaTitle: "React Native Mobile App Development | Ashish Kumar",
+    metaTitle: "React Native Mobile App Development",
     metaDescription:
       "Freelance React Native developer building cross-platform iOS and Android apps from a single codebase — for startups, SaaS companies and growing businesses.",
     intro: [
@@ -146,7 +146,7 @@ export const services: Service[] = [
     slug: "saas-development",
     name: "SaaS Development",
     tagline: "MVPs and production-ready SaaS products — from frontend to backend.",
-    metaTitle: "SaaS Development & MVPs | Freelance SaaS Developer — Ashish Kumar",
+    metaTitle: "SaaS Development & MVPs",
     metaDescription:
       "Freelance SaaS developer building MVPs and production-ready SaaS products end to end — Next.js, React, Node.js, PostgreSQL and deployment included.",
     intro: [
@@ -195,7 +195,7 @@ export const services: Service[] = [
     name: "AI Integration",
     tagline:
       "Practical AI features built into websites, web apps and mobile products.",
-    metaTitle: "AI Integration for Web & Mobile Apps | Ashish Kumar",
+    metaTitle: "AI Integration for Web & Mobile Apps",
     metaDescription:
       "Freelance engineer adding practical AI features — LLM-powered tools, smart search and automation — to websites, web applications and mobile apps.",
     intro: [

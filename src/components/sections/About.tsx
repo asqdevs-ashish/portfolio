@@ -42,7 +42,7 @@ export function About() {
               <div className="overflow-hidden rounded-xl border border-border-strong">
                 <Image
                   src="/pfp1.jpeg"
-                  alt="Portrait of Ashish Kumar, AI & Full-Stack Engineer"
+                  alt={`${site.name} — AI & Full-Stack Engineer`}
                   width={721}
                   height={1280}
                   quality={90}
@@ -62,8 +62,8 @@ export function About() {
           {/* Story */}
           <Reveal delay={100} className="lg:col-span-7">
             <h3 className="text-2xl font-semibold tracking-tight text-foreground md:text-[1.9rem] md:leading-snug">
-              I’m Ashish — an AI &amp; full-stack engineer focused on building
-              modern digital products across web and mobile.
+              I’m {site.name} — an AI &amp; full-stack engineer focused on
+              building modern digital products across web and mobile.
             </h3>
             <div className="mt-5 max-w-xl space-y-4 text-[15px] leading-relaxed text-muted-foreground md:text-base">
               <p>

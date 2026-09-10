@@ -5,7 +5,7 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/Container";
 import { HeroVideo } from "@/components/HeroVideo";
 import { media } from "@/lib/media";
-import { availability } from "@/lib/site";
+import { availability, site } from "@/lib/site";
 
 const capabilities = ["Web", "Mobile", "SaaS", "AI"];
 
@@ -38,7 +38,7 @@ export function Hero() {
           )}
           <p className="eyebrow flex-wrap">
             <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-primary" />
-            Ashish Kumar&nbsp;·&nbsp;AI &amp; Full-Stack Engineer
+            {site.name}&nbsp;·&nbsp;AI &amp; Full-Stack Engineer
           </p>
 
           <h1 className="mt-6 text-balance text-[2.3rem] font-semibold leading-[1.08] tracking-[-0.025em] sm:text-5xl lg:text-[3.4rem]">
@@ -105,7 +105,7 @@ export function Hero() {
                 {HAS_HERO_POSTER ? (
                   <Image
                     src={media.heroVideoPoster}
-                    alt="Ashish Kumar — AI & Full-Stack Engineer"
+                    alt={`${site.name} — AI & Full-Stack Engineer`}
                     fill
                     priority
                     quality={90}
@@ -114,8 +114,8 @@ export function Hero() {
                   />
                 ) : (
                   <Image
-                    src="/profile-photo.jpeg"
-                    alt="Ashish Kumar — AI & Full-Stack Engineer"
+                    src="/pfp1.jpeg"
+                    alt={`${site.name} — AI & Full-Stack Engineer`}
                     fill
                     priority
                     quality={90}

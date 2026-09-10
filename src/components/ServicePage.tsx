@@ -12,7 +12,7 @@ import { site } from "@/lib/site";
  * service, built entirely from real data (projects, technologies, FAQ).
  */
 export function ServicePage({ service }: { service: Service }) {
-  const url = `${site.domain}services/${service.slug}`;
+  const url = `${site.domain}/services/${service.slug}`;
   const related = projects.filter((p) =>
     service.projectTitles.includes(p.title),
   );
@@ -39,12 +39,8 @@ export function ServicePage({ service }: { service: Service }) {
     description: service.metaDescription,
     url,
     inLanguage: "en",
-    author: {
-      "@type": "Person",
-      name: site.name,
-      url: site.domain,
-    },
-    isPartOf: { "@type": "WebSite", name: site.name, url: site.domain },
+    author: { "@id": `${site.domain}/#person` },
+    isPartOf: { "@id": `${site.domain}/#website` },
   };
 
   return (
@@ -289,7 +285,7 @@ export function ServicePage({ service }: { service: Service }) {
             either way you’ll get a reply within 24 hours.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
-            <Link href="/#contact" className="btn btn-primary">
+            <Link href="/contact" className="btn btn-primary">
               Start a Project
               <ArrowRight size={16} aria-hidden />
             </Link>
