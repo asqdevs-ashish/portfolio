@@ -50,7 +50,7 @@ export const socialLinks = [
   },
   {
     label: "YouTube",
-    href: "https://www.youtube.com/channel/UCwbCbJ30Cvz5dLxZ6I9enHg",
+    href: "https://www.youtube.com/@ashishpathak.builds",
   },
   {
     label: "Email",
